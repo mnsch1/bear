@@ -21,11 +21,28 @@
       <a-entity 
         gltf-model="url(https://mnsch1.github.io/bear/bear.glb)" 
         scale="0.5 0.5 0.5"
-        position="0 0 0">
+        position="0 0 0"
+        animation-mixer>
       </a-entity>
     </a-marker>
     <!-- Камера для отображения -->
     <a-entity camera></a-entity>
   </a-scene>
+
+  <!-- Добавим текст для отладки -->
+  <div id="debug-info" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 20px;">
+    Загрузка модели...
+  </div>
+
+  <script>
+    // Проверим, что модель загружается
+    var model = document.querySelector('a-entity');
+    model.addEventListener('model-loaded', function () {
+      document.getElementById('debug-info').innerText = 'Модель загружена!';
+    });
+    model.addEventListener('error', function () {
+      document.getElementById('debug-info').innerText = 'Ошибка загрузки модели!';
+    });
+  </script>
 </body>
 </html>
