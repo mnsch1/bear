@@ -4,15 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Мишка</title>
+  <!-- Подключаем A-Frame -->
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <!-- Подключаем AR.js для работы с дополненной реальностью -->
   <script src="https://cdn.jsdelivr.net/npm/aframe-ar.js@1.0.4/dist/aframe-ar.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+  </style>
 </head>
-<body style="margin: 0; overflow: hidden;">
-  <!-- Окружение с AR -->
+<body>
+  <!-- AR-сцена -->
   <a-scene embedded arjs>
-    <!-- Используем маркер Hiro для отображения -->
+    <!-- Маркер, который будет использоваться для отображения модели -->
     <a-marker preset="hiro">
-      <!-- Вставляем 3D модель мишки -->
+      <!-- Вставляем модель мишки, путь к модели должен быть правильным -->
       <a-entity 
         gltf-model="url(https://mnsch1.github.io/bear/bear.glb)" 
         scale="0.5 0.5 0.5"
